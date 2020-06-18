@@ -1,8 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var password;
+var password = "";
 var passwordText;
-var passswordLength;
+var passwordLength;
 var characterTypes;
 var getIncludedCharacters;
 var includedCharacters = [];
@@ -11,7 +11,7 @@ var lowercase;
 var uppercase;
 var numeric;
 var special;
-var atLeastOne;
+var randomIntInRange;
 var specialCharactersArray =  ["\!", "\"", "\#", "\%", "\&", "\'", "\(", "\)", "\*", "\+", "\-", "\.", "\/", "\:", "\;", "\<", "\=", "\>", "\?", "\@", "\[", "\\", "\]", "\^", "\_", "\`", "\{", "\|", "\}", "\~"];
 var numbersArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -28,12 +28,14 @@ function writePassword() {
 }
 
 function generatePassword() {
-  passswordLength = getPasswordLength();
+  passwordLength = getPasswordLength();
   characterTypes = getCharacterTypes();
   includedCharacters = getIncludedCharacters(characterTypes);
-  for (i = 0; i < passswordLength; i += 1) {
-
+  for (i = 0; i < passwordLength; i += 1) {
+    randomIntInRange = getRandomInt(0, includedCharacters.length - 1)
+    password.concat(includedCharacters[randomIntInRange]);
   }
+  return password;
 }
 
 function getPasswordLength() {
