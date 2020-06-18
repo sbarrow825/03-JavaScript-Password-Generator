@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var password = "";
+var finalPassword;
 var passwordText;
 var passwordLength;
 var characterTypes;
@@ -20,10 +21,10 @@ var allPossibleCharacters = [specialCharactersArray, numbersArray, lowercaseArra
 
 // Write password to the #password input
 function writePassword() {
-  password = generatePassword();
+  finalPassword = generatePassword();
   passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = finalPassword;
 
 }
 
@@ -33,7 +34,8 @@ function generatePassword() {
   includedCharacters = getIncludedCharacters(characterTypes);
   for (i = 0; i < passwordLength; i += 1) {
     randomIntInRange = getRandomInt(0, includedCharacters.length - 1)
-    password.concat(includedCharacters[randomIntInRange]);
+    password = password.concat(includedCharacters[randomIntInRange]);
+    console.log(password);
   }
   return password;
 }
@@ -66,7 +68,7 @@ function getCharacterTypes() {
 function getIncludedCharacters(characterTypes) {
   for (i = 0; i < characterTypes.length; i += 1) {
     if (characterTypes[i]) {
-      includedCharacters.concat(allPossibleCharacters[i]);
+      includedCharacters = includedCharacters.concat(allPossibleCharacters[i]);
     }
   }
   return includedCharacters;
