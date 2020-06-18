@@ -18,7 +18,6 @@ var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var allPossibleCharacters = [specialCharactersArray, numbersArray, lowercaseArray, uppercaseArray];
 
-console.log(specialCharacters[0]);
 // Write password to the #password input
 function writePassword() {
   password = generatePassword();
@@ -32,7 +31,9 @@ function generatePassword() {
   passswordLength = getPasswordLength();
   characterTypes = getCharacterTypes();
   includedCharacters = getIncludedCharacters(characterTypes);
+  for (i = 0; i < passswordLength; i += 1) {
 
+  }
 }
 
 function getPasswordLength() {
@@ -67,6 +68,13 @@ function getIncludedCharacters(characterTypes) {
     }
   }
   return includedCharacters;
+}
+
+// Generates a random integer >= min and <= max. Sourced from https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Add event listener to generate button
