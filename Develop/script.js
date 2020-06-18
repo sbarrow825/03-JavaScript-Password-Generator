@@ -39,7 +39,13 @@ function getCharacterTypes() {
   uppercase = confirm("Do you want to include uppercase letters in your password?");
   numeric = confirm("Do you want to include numbers in your password?");
   special = confirm("Do you want to include special characters in your password?");
-  if (!lowercase && !uppercase && )
+  if (!lowercase && !uppercase && !numeric && !special) {
+    alert("Invalid inputs, at least one character type must be selected");
+    return getCharacterTypes();
+  }
+  else {
+    return [lowercase, uppercase, numeric, special];
+  }
 }
 
 // Add event listener to generate button
