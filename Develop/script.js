@@ -27,6 +27,7 @@ function writePassword() {
   passwordText.value = finalPassword;
 }
 
+// Returns the random password fitting the user's specifications of password length and character types.
 function generatePassword() {
   passwordLength = getPasswordLength();
   characterTypes = getCharacterTypes();
@@ -39,6 +40,7 @@ function generatePassword() {
   return password;
 }
 
+// Prompts the user to enter a password length >= 8 and <= 128. Continues to prompt the user until a valid input for length is given.
 function getPasswordLength() {
   inputLength = prompt("Please enter a number to choose the length of your password (Note: must be no less than 8 but no greater than 128)");
   if (inputLength > 128 || inputLength < 8) {
@@ -50,6 +52,8 @@ function getPasswordLength() {
   }
 }
 
+// Prompts the user to specify which character types they want in their password, and returns an array of boolean values representing
+// the types of characters the user did and didn't want in the order of [special, numeric, lowercase, uppercase].
 function getCharacterTypes() {
   lowercase = confirm("Do you want to include lowercase letters in your password?");
   uppercase = confirm("Do you want to include uppercase letters in your password?");
@@ -64,6 +68,7 @@ function getCharacterTypes() {
   }
 }
 
+// Using the array of boolean values from getCharacterTypes(), returns the array of all possible characters that fit the user's specifications
 function getIncludedCharacters(characterTypes) {
   includedCharacters = [];
   for (i = 0; i < characterTypes.length; i += 1) {
@@ -75,6 +80,7 @@ function getIncludedCharacters(characterTypes) {
 }
 
 // Generates a random integer >= min and <= max. Sourced from https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+// used to pick out random characters from the list of all specified characters when writing the password
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
