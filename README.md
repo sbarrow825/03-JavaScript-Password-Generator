@@ -2,12 +2,15 @@
 ---------------------
 
 ## Introduction
+
 ```
  The repo contains the html, CSS, and JavaScript code for a random password generating web-application. The application allows the user to
  generate for themselves a random password of a specified length >= 8 and <= 128 including lowercase letters, uppercase letters, numbers,
  and/or special characters in the final password. After user specifications have been given to the program, the password will display on screen.
  ```
+
 ## Requirements
+
 ```
  In order to run the program for yourself, navigate to the interactive webpage found here: https://sbarrow825.github.io/03-JavaScript-Password-Generator/
  The application will begin upon clicking the red "Generate Password" button.
