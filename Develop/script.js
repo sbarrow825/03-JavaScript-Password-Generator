@@ -22,7 +22,6 @@ var allPossibleCharacters = [specialCharactersArray, numbersArray, lowercaseArra
 // Write password to the #password input
 function writePassword() {
   finalPassword = generatePassword();
-  console.log(finalPassword);
   passwordText = document.querySelector("#password");
 
   passwordText.value = finalPassword;
@@ -42,7 +41,6 @@ function generatePassword() {
 
 function getPasswordLength() {
   inputLength = prompt("Please enter a number to choose the length of your password (Note: must be no less than 8 but no greater than 128)");
-  console.log(inputLength);
   if (inputLength > 128 || inputLength < 8) {
     alert("Invalid input, please enter a length no less than 8 but no greater than 128 for your password");
     return getPasswordLength();
@@ -62,7 +60,6 @@ function getCharacterTypes() {
     return getCharacterTypes();
   }
   else {
-    console.log([lowercase, uppercase, numeric, special]);
     return [special, numeric, lowercase, uppercase];
   }
 }
@@ -74,7 +71,6 @@ function getIncludedCharacters(characterTypes) {
       includedCharacters = includedCharacters.concat(allPossibleCharacters[i]);
     }
   }
-  console.log(includedCharacters);
   return includedCharacters;
 }
 
