@@ -1,12 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var password = "";
+var password;
 var finalPassword;
 var passwordText;
 var passwordLength;
 var characterTypes;
 var getIncludedCharacters;
-var includedCharacters = [];
+var includedCharacters;
 var inputLength;
 var lowercase;
 var uppercase;
@@ -22,26 +22,27 @@ var allPossibleCharacters = [specialCharactersArray, numbersArray, lowercaseArra
 // Write password to the #password input
 function writePassword() {
   finalPassword = generatePassword();
+  console.log(finalPassword);
   passwordText = document.querySelector("#password");
 
   passwordText.value = finalPassword;
-
 }
 
 function generatePassword() {
   passwordLength = getPasswordLength();
   characterTypes = getCharacterTypes();
   includedCharacters = getIncludedCharacters(characterTypes);
+  password = "";
   for (i = 0; i < passwordLength; i += 1) {
     randomIntInRange = getRandomInt(0, includedCharacters.length - 1)
     password = password.concat(includedCharacters[randomIntInRange]);
-    console.log(password);
   }
   return password;
 }
 
 function getPasswordLength() {
   inputLength = prompt("Please enter a number to choose the length of your password (Note: must be no less than 8 but no greater than 128)");
+  console.log(inputLength);
   if (inputLength > 128 || inputLength < 8) {
     alert("Invalid input, please enter a length no less than 8 but no greater than 128 for your password");
     return getPasswordLength();
@@ -61,16 +62,19 @@ function getCharacterTypes() {
     return getCharacterTypes();
   }
   else {
-    return [lowercase, uppercase, numeric, special];
+    console.log([lowercase, uppercase, numeric, special]);
+    return [special, numeric, lowercase, uppercase];
   }
 }
 
 function getIncludedCharacters(characterTypes) {
+  includedCharacters = [];
   for (i = 0; i < characterTypes.length; i += 1) {
     if (characterTypes[i]) {
       includedCharacters = includedCharacters.concat(allPossibleCharacters[i]);
     }
   }
+  console.log(includedCharacters);
   return includedCharacters;
 }
 
